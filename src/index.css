@@ -13,3 +13,12 @@ img {
   width: 200px;
   height: 200px;
 }
+
+.cart-list {
+  display: flex;
+  gap: 4rem;
+}
+
+.list-product {
+  margin: 2rem;
+}

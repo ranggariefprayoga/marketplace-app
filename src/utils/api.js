@@ -4,8 +4,12 @@ const getAllProducts = () => {
   return axios.get("https://fakestoreapi.com/products");
 };
 
-const getProductById = (id) => {
-  return axios.get(`https://fakestoreapi.com/product/${id}`);
+const getAllCarts = () => {
+  return axios.get("https://fakestoreapi.com/carts");
 };
 
-export { getAllProducts, getProductById };
+const getProductById = (id) => {
+  return axios.get(`https://fakestoreapi.com/products/${id}`);
+};
+
+export { getAllProducts, getProductById, getAllCarts };

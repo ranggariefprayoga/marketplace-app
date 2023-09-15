@@ -3,7 +3,12 @@ import { getAllProducts } from "../utils/api";
 import ListProducts from "../component/Product/ListProducts";
 
 function HomePages() {
-  const { data, isLoading, isError, error } = useQuery({ queryKey: ["products"], queryFn: getAllProducts });
+  const { data, isLoading, isError, error } = useQuery(
+    { queryKey: ["products"], queryFn: getAllProducts },
+    {
+      refetchOnWindowFocus: true,
+    }
+  );
 
   if (isLoading) return <h2>Is Loading...</h2>;
 
