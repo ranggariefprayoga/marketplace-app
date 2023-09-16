@@ -3,7 +3,7 @@ import { getInCategory } from "../utils/api";
 
 function UseGetCategoryHook(category) {
   return useQuery(
-    { queryKey: ["category"], queryFn: () => getInCategory(category) },
+    { queryKey: ["category", category], queryFn: () => getInCategory(category) },
     {
       refetchOnWindowFocus: true,
     }

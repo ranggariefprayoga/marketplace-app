@@ -21,4 +21,8 @@ const getProductById = (id) => {
   return axios.get(`https://fakestoreapi.com/products/${id}`);
 };
 
-export { getAllProducts, getProductById, getAllCarts, getAllCategories, getInCategory };
+const addNewProduct = (user) => {
+  return axios.post("https://fakestoreapi.com/products", user);
+};
+
+export { getAllProducts, getProductById, getAllCarts, getAllCategories, getInCategory, addNewProduct };

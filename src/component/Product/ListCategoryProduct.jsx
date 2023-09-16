@@ -1,10 +1,16 @@
 // import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import UseGetCategoryHook from "../../Hooks/UseGetCategoryHook";
 
 /* eslint-disable react/prop-types */
 function ListCategoryProduct() {
   const { category } = useParams();
+  const navigate = useNavigate();
+  const handleBackToHome = () => {
+    navigate("/");
+  };
   const { data, isLoading, isError, error } = UseGetCategoryHook(category);
 
   if (isLoading) return <h2>Is Loading...</h2>;
@@ -13,6 +19,10 @@ function ListCategoryProduct() {
 
   return (
     <div className="category">
+      <div className="icon-wrapper" onClick={handleBackToHome}>
+        <KeyboardBackspaceIcon />
+      </div>
+      <p>{data?.data.length}</p>
       {data?.data.map((item, idx) => (
         <div key={idx}>
           <p>{item.category}</p>
