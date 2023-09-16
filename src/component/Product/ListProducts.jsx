@@ -6,7 +6,7 @@ function ListProducts({ product }) {
     <div className="list-product">
       <p>{product.title}</p>
       <img src={product.image} alt={product.title} />
-      <Link to={`/product/${product.id}`}>Lihat Detail</Link>
+      <Link to={`/products/${product.id}`}>Lihat Detail</Link>
     </div>
   );
 }

@@ -1,14 +1,8 @@
-import { useQuery } from "@tanstack/react-query";
-import { getAllProducts } from "../utils/api";
 import ListProducts from "../component/Product/ListProducts";
+import UseProductsHooks from "../Hooks/UseProductsHooks";
 
-function HomePages() {
-  const { data, isLoading, isError, error } = useQuery(
-    { queryKey: ["products"], queryFn: getAllProducts },
-    {
-      refetchOnWindowFocus: true,
-    }
-  );
+function ProductsPage() {
+  const { data, isLoading, isError, error } = UseProductsHooks();
 
   if (isLoading) return <h2>Is Loading...</h2>;
 
@@ -23,4 +17,4 @@ function HomePages() {
   );
 }
 
-export default HomePages;
+export default ProductsPage;

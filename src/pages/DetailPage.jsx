@@ -1,8 +1,6 @@
 // import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
-// import { getProductById } from "../utils/api";
-
-import UseDetailProductHooks from "../component/Hooks/UseDetailProductHooks";
+import UseDetailProductHooks from "../Hooks/UseDetailProductHooks";
 
 function DetailPage() {
   const { id } = useParams();

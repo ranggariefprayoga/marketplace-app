@@ -22,3 +22,10 @@ img {
 .list-product {
   margin: 2rem;
 }
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 12px;
+}
