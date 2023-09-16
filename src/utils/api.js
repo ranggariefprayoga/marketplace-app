@@ -13,7 +13,6 @@ const getAllCategories = () => {
 };
 
 const getInCategory = (category) => {
-  console.log(category);
   return axios.get(`https://fakestoreapi.com/products/category/${category}`);
 };
 
@@ -21,8 +20,8 @@ const getProductById = (id) => {
   return axios.get(`https://fakestoreapi.com/products/${id}`);
 };
 
-const addNewProduct = (user) => {
-  return axios.post("https://fakestoreapi.com/products", user);
+const addNewProduct = (data) => {
+  return axios.post("https://fakestoreapi.com/products", data);
 };
 
 export { getAllProducts, getProductById, getAllCarts, getAllCategories, getInCategory, addNewProduct };

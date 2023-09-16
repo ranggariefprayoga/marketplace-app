@@ -25,7 +25,9 @@ function ListCategoryProduct() {
       <p>{data?.data.length}</p>
       {data?.data.map((item, idx) => (
         <div key={idx}>
-          <p>{item.category}</p>
+          <p>
+            {item.category} - {item.title}
+          </p>
           <img src={item.image} alt={item.category} />
         </div>
       ))}
