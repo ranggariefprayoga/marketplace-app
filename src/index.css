@@ -48,3 +48,9 @@ img {
 .form .image-input {
   width: 16%;
 }
+
+button {
+  margin-top: 12px;
+  height: 44spx;
+  width: 120px;
+}
