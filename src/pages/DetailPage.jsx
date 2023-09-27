@@ -1,15 +1,10 @@
+/* eslint-disable react/prop-types */
 // import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import UseDetailProductHooks from "../Hooks/UseDetailProductHooks";
 
-function DetailPage() {
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const handleBackToHome = () => {
-    navigate("/");
-  };
+function DetailProduct({ id, handleDetailId }) {
   const { isLoading, isError, error, data } = UseDetailProductHooks(id);
 
   if (isLoading) return <h2>Is Loading...</h2>;
@@ -18,7 +13,7 @@ function DetailPage() {
 
   return (
     <>
-      <div className="icon-wrapper" onClick={handleBackToHome}>
+      <div className="icon-wrapper" onClick={() => handleDetailId(null)}>
         <KeyboardBackspaceIcon />
       </div>
       <div>{data?.data.title}</div>
@@ -26,4 +21,4 @@ function DetailPage() {
   );
 }
 
-export default DetailPage;
+export default DetailProduct;

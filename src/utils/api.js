@@ -20,8 +20,4 @@ const getProductById = (id) => {
   return axios.get(`https://fakestoreapi.com/products/${id}`);
 };
 
-const addNewProduct = (data) => {
-  return axios.post("https://fakestoreapi.com/products", data);
-};
-
-export { getAllProducts, getProductById, getAllCarts, getAllCategories, getInCategory, addNewProduct };
+export { getAllProducts, getProductById, getAllCarts, getAllCategories, getInCategory };

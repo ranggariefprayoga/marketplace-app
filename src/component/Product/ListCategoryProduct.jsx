@@ -1,5 +1,5 @@
 // import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import UseGetCategoryHook from "../../Hooks/UseGetCategoryHook";
@@ -29,6 +29,7 @@ function ListCategoryProduct() {
             {item.category} - {item.title}
           </p>
           <img src={item.image} alt={item.category} />
+          <Link to={`/products/${item.id}`}>Lihat Detail</Link>
         </div>
       ))}
     </div>
