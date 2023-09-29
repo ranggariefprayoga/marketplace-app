@@ -1,4 +1,5 @@
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import AccountMenu from "./DropDown";
 
 const styleForShoppingCartIcon = {
   width: "40px",
@@ -12,14 +13,21 @@ function Navigation() {
         <ShoppingCartIcon style={styleForShoppingCartIcon} />
         <h1>Marketplace App</h1>
       </div>
-      <ul className="navigation-link">
+      <div className="account">
+        <AccountMenu />
+      </div>
+      {/* <ul className="navigation-link">
+        <li className="user">
+          <img src="./user.svg" alt="user" />
+          <span>Hello!</span>
+        </li>
         <li>
           <a href="/">Home</a>
         </li>
         <li>
           <a href="/carts">Cart</a>
         </li>
-      </ul>
+      </ul> */}
     </div>
   );
 }

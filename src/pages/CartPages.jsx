@@ -1,21 +1,20 @@
 import { useQuery } from "@tanstack/react-query";
 import { getAllCarts } from "../utils/api";
-import CartList from "../component/Cart/CartList";
+import { ThreeDots } from "react-loader-spinner";
 
 function CartPages() {
-  const { data, isLoading, isError, error } = useQuery({ queryKey: ["carts"], queryFn: getAllCarts });
+  const { isLoading, isError, error } = useQuery({ queryKey: ["carts"], queryFn: getAllCarts });
 
-  if (isLoading) return <h2>Is Loading...</h2>;
+  if (isLoading)
+    return (
+      <div className="loading-container">
+        <ThreeDots height="80" width="80" radius="9" color="black" ariaLabel="three-dots-loading" wrapperStyle={{}} wrapperClassName="" visible={true} />
+      </div>
+    );
 
   if (isError) return <h2>Error, {error.message}</h2>;
 
-  return (
-    <>
-      {data?.data.map((cart) => (
-        <CartList key={cart.id} cart={cart} />
-      ))}
-    </>
-  );
+  return <div className="cart-container">Ini Cart Page</div>;
 }
 
 export default CartPages;

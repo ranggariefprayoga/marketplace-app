@@ -2,9 +2,9 @@ import ListProducts from "../component/Product/ListProducts";
 import UseProductsHooks from "../Hooks/UseProductsHooks";
 
 function ProductsPage() {
-  const { data, isLoading, isError, error } = UseProductsHooks();
+  const { data, isError, isLoading, error } = UseProductsHooks();
 
-  if (isLoading) return <h2>Is Loading...</h2>;
+  if (isLoading) return <div className="loading-container"></div>;
 
   if (isError) return <h2>Error, {error.message}</h2>;
 

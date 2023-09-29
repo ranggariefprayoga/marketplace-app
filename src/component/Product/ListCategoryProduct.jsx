@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import UseGetCategoryHook from "../../Hooks/UseGetCategoryHook";
 import { PopUp } from "../PopUp/PopUp";
+import { ThreeDots } from "react-loader-spinner";
 
 /* eslint-disable react/prop-types */
 function ListCategoryProduct() {
@@ -14,7 +15,12 @@ function ListCategoryProduct() {
   };
   const { data, isLoading, isError, error } = UseGetCategoryHook(category);
 
-  if (isLoading) return <h2>Is Loading...</h2>;
+  if (isLoading)
+    return (
+      <div className="loading-container">
+        <ThreeDots height="80" width="80" radius="9" color="black" ariaLabel="three-dots-loading" wrapperStyle={{}} wrapperClassName="" visible={true} />
+      </div>
+    );
 
   if (isError) return <h2>Error, {error.message}</h2>;
 

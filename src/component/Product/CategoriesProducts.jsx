@@ -1,12 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import UseCategoriesProductsHook from "../../Hooks/UseCategoriesProductsHook";
+import { ThreeDots } from "react-loader-spinner";
 // import UseGetCategoryHook from "../../Hooks/UseGetCategoryHook";
 
 function CategoriesProducts() {
   const navigate = useNavigate();
   const { data: category, isLoading, isError, error } = UseCategoriesProductsHook();
 
-  if (isLoading) return <h2>Is Loading...</h2>;
+  if (isLoading)
+    return (
+      <div className="loading-container">
+        <ThreeDots height="80" width="80" radius="9" color="black" ariaLabel="three-dots-loading" wrapperStyle={{}} wrapperClassName="" visible={true} />
+      </div>
+    );
 
   if (isError) return <h2>Error, {error.message}</h2>;
 
