@@ -4,7 +4,6 @@ import ProductsPage from "./ProductsPage";
 function HomePage() {
   return (
     <>
-      <div>HomePage</div>
       <CategoriesProducts />
       <ProductsPage />
     </>
