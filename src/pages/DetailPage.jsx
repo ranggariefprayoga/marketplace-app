@@ -1,14 +1,19 @@
 /* eslint-disable no-unreachable */
 /* eslint-disable react/prop-types */
 // import { useQuery } from "@tanstack/react-query";
-
-// import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
-import { Alert, AlertTitle } from "@mui/material";
+import { Button } from "@mui/material";
 import UseDetailProductHooks from "../Hooks/UseDetailProductHooks";
 import { ThreeDots } from "react-loader-spinner";
+import AlertBox from "../component/PopUp/Alert";
+import { addProductToCart } from "../states/handler";
 
 function DetailProduct({ id }) {
   const { isLoading, isError, error, data } = UseDetailProductHooks(id);
+
+  const handleSuccesAlert = () => {
+    alert("yeay data berhasil masuk");
+    addProductToCart(data?.data);
+  };
 
   if (isLoading)
     return (
@@ -19,15 +24,6 @@ function DetailProduct({ id }) {
 
   if (isError) return <h2>Error, {error.message}</h2>;
 
-  const handleAddToCart = () => {
-    return (
-      <Alert severity="success">
-        <AlertTitle>Success</AlertTitle>
-        This is a success alert — <strong>check it out!</strong>
-      </Alert>
-    );
-  };
-
   return (
     <div className="detail-item">
       <div className="detail-image">
@@ -36,10 +32,22 @@ function DetailProduct({ id }) {
       </div>
       <div className="detail-information">
         <h3>USD {data?.data.price}</h3>
+        <p>{data?.data.rating.rate}</p>
         <p className="description">{data?.data.description}</p>
       </div>
-      <div className="add-to-cart" onClick={handleAddToCart}>
-        <h5>+ Keranjang</h5>
+      <div className="add-to-cart">
+        <Button
+          variant="contained"
+          size="medium"
+          onClick={() => {
+            handleSuccesAlert();
+          }}
+        >
+          + Keranjang
+        </Button>
+        <div className="alert-container">
+          <AlertBox />;
+        </div>
       </div>
     </div>
   );

@@ -1,8 +1,13 @@
-import { useQuery } from "@tanstack/react-query";
-import { deleteProductById } from "../utils/api";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { deleteACart } from "../states/handler";
 
-function UseDeleteProductHook(productId) {
-  return useQuery({ queryKey: ["products", productId], queryFn: () => deleteProductById(productId) });
+function UseDeleteProductHook() {
+  const queryClient = useQueryClient();
+  return useMutation(deleteACart, {
+    onSuccess: () => {
+      queryClient.invalidateQueries("carts");
+    },
+  });
 }
 
 export default UseDeleteProductHook;

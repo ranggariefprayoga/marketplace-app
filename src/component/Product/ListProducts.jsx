@@ -12,18 +12,12 @@ function ListProducts({ product }) {
       </div>
       <div className="product-content">
         <p className="title">{product.title}</p>
-        <div className="product-information">
-          <p className="price">USD {product.price}</p>
-          <p className="name-category">#{product.category}</p>
-        </div>
+        <p className="price">USD {product.price}</p>
+        <p>Rating {product.rating.rate}</p>
       </div>
       <div className="link-pop-up">
         <PopUp product={product} />
       </div>
-      {/* <Popup position="top center" trigger={<Link className="to-detail"> Open Modal </Link>} modal>
-        <DetailProduct id={product.id} />
-      </Popup> */}
-      {/* {detailId == product.id && <DetailProduct id={product.id} handleDetailId={handleDetailId} />} */}
     </div>
   );
 }
